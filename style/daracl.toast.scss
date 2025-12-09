@@ -1,12 +1,5 @@
 @use "_icon.scss";
 
-.daracl-toast-hidden {
-  visibility: visible;
-  width: 0px;
-  height: 0px;
-  z-index: 1000;
-}
-
 .daracl-toast-wrapper {
   :root {
     --dark: #155724;
@@ -23,41 +16,41 @@
   max-width: 400px;
   color: var(--light);
 
-  &.left {
+  &.dt-left {
     left: 10px;
   }
 
-  &.center {
+  &.dt-center {
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  &.right {
+  &.dt-right {
     right: 10px;
   }
 
-  &.top {
+  &.dt-top {
     top: 10px;
   }
 
-  &.top.center {
+  &.dt-top.dt-center {
     transform: translate(-50%, -0%) !important;
   }
 
-  &.bottom.center {
+  &.dt-bottom.dt-center {
     transform: translate(-50%, -0%) !important;
   }
 
-  &.middle {
+  &.dt-middle {
     top: 50%;
     transform: translate(0, -50%);
   }
 
-  &.middle.center {
+  &.dt-middle.dt-center {
     transform: translate(-50%, -50%) !important;
   }
 
-  &.bottom {
+  &.dt-bottom {
     bottom: 10px;
   }
 
@@ -68,83 +61,84 @@
     background-position: 12px 45%;
     background-repeat: no-repeat;
 
-    animation: fadeIn 1s;
+    animation: daraclFadeIn 1s;
     animation-fill-mode: forwards;
 
-    > .toast-header {
+    > .dt-header {
       padding: 5px 20px 5px 40px;
       position: relative;
       top: 0px;
       border-radius: 4px 4px 0px 0px;
     }
 
-    > .toast-body {
+    > .dt-body {
       padding: 10px 25px 10px 50px;
     }
 
-    &.header-mode {
+    &.dt-header {
       background-position: 7px 4px;
 
-      > .toast-body {
+      > .dt-body {
         background-color: #f7f7f7;
         padding-left: 10px;
         color: var(--dark);
       }
     }
 
-    &.primary {
+    &.dt-primary {
       background-color: #cce5ff;
       border-color: #b8daff;
       color: var(--light);
-      background-image: icon.icon(primary, "2496ed");
+      background-image: icon.icon(primary, "0d6efd");
     }
 
-    &.secondary {
+    &.dt-secondary {
       background-color: #e2e3e5;
       border-color: #d6d8db;
       color: var(--light);
-      background-image: icon.icon(secondary, "2496ed");
+      background-image: icon.icon(secondary, "6c757d");
     }
 
-    &.info {
+    &.dt-info {
       background-color: #d1ecf1;
       border-color: #bee5eb;
       color: var(--light);
-      background-image: icon.icon(info, "2496ed");
+      background-image: icon.icon(info, "0dcaf0");
     }
 
-    &.success {
+    &.dt-success {
       background-color: #d4edda;
       border-color: #c3e6cb;
       color: var(--light);
-      background-image: icon.icon(success, "493fff");
+      background-image: icon.icon(success, "198754");
     }
 
-    &.warning {
+    &.dt-warning {
       background-color: #fff3cd;
       border-color: #ffeeba;
       color: var(--dark);
-      background-image: icon.icon(warning, "e18787");
+      background-image: icon.icon(warning, "ffc107");
     }
 
-    &.danger {
+    &.dt-danger {
       background-color: #f8d7da;
       border-color: #f5c6cb;
       color: var(--light);
-      background-image: icon.icon(danger, "ef2e40");
+      background-image: icon.icon(danger, "dc3545");
     }
 
-    &.hide {
-      animation: fadeOut 0.5s;
+
+    &.dt-hide {
+      animation: daraclFadeOut 0.5s;
       animation-fill-mode: forwards;
       //animation: daraToastHide 0.3s ease forwards;
     }
 
-    .toast-content {
+    .dt-content {
       word-wrap: break-word;
     }
 
-    > .toast-close {
+    > .dt-close {
       font-size: 1.2rem;
       position: absolute;
       top: 0;
@@ -156,7 +150,7 @@
       z-index: 1;
     }
 
-    .progress-bar {
+    .dt-progress-bar {
       position: absolute;
       left: 0;
       border-radius: 4px;
@@ -164,12 +158,12 @@
       width: 0%;
       height: 3px;
       background-color: #ef476f;
-      animation: progressAnimation 3s;
+      animation: daraclProgressAnimation 3s;
     }
   }
 }
 
-@keyframes progressAnimation {
+@keyframes daraclProgressAnimation {
   0% {
     width: 100%;
   }
@@ -179,7 +173,7 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes daraclFadeIn {
   from {
     opacity: 0;
   }
@@ -189,7 +183,7 @@
   }
 }
 
-@keyframes fadeOut {
+@keyframes daraclFadeOut {
   from {
     opacity: 1;
   }
