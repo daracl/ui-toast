@@ -12,3 +12,9 @@ dist.zip
 .pnp.*
 dist/*
 template.zip
+
+# test result 
+test-results/*
+/test-results
+
+bundle-report.html
