@@ -49,14 +49,6 @@
     "dist",
     "style"
   ],
-  "peerDependencies": {
-    "@daracl/core": "^0.0.3"
-  },
-  "dependencies": {
-    "@daracl/core": "^0.0.3",
-    "esbuild": "^0.18.11",
-    "typescript": "^5.1.6"
-  },
   "prettier": {
     "printWidth": 256,
     "useTabs": false,
@@ -69,7 +61,15 @@
   "[javascript]": {
     "editor.formatOnSave": false
   },
+  "peerDependencies": {
+    "@daracl/core": "^0.0.3"
+  },
+  "dependencies": {
+    "esbuild": "^0.18.11",
+    "typescript": "^5.1.6"
+  },
   "devDependencies": {
+    "@daracl/core": "^0.0.3",
     "@types/jest": "^29.5.1",
     "@types/node": "^20.1.0",
     "@typescript-eslint/eslint-plugin": "^5.59.5",
@@ -99,7 +99,10 @@
   },
   "scripts": {
     "prepack": "yarn build",
-    "build": "vite build --mode production && vite build --mode development && yarn copy-dts && yarn build:tsc && yarn copy-unmin && yarn clean:unmin && yarn copy-html",
+    "build": "yarn build:escjs && yarn build:umd && yarn mergenclean",
+    "build:umd": "vite build --config vite.config.umd.js --mode production && vite build --config vite.config.umd.js --mode development",
+    "build:escjs": "vite build --config vite.config.js --mode production && vite build --config vite.config.js --mode development",
+    "mergenclean": "yarn copy-dts && yarn build:tsc && yarn copy-unmin && yarn clean:unmin && yarn copy-html",
     "build:tsc": "tsc --emitDeclarationOnly",
     "dev": "vite",
     "preview": "vite preview",

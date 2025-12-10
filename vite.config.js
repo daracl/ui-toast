@@ -1,42 +1,26 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-import banner from 'vite-plugin-banner';
-import packageJson from './package.json';
 import { visualizer } from "rollup-plugin-visualizer";
-
-const topBanner = `/*!
-* ${packageJson.name}  v${packageJson.version}
-* Copyright 2023-${new Date().getUTCFullYear()} darainfo and other contributors; 
-* Licensed ${packageJson.license}
-*/`;
+import { commonConfig, createAssetFileNames } from './vite.common.js';
 
 export default defineConfig(({ mode }) => {
   const isProd = mode === 'production';
-  const moduleName = 'daracl.toast';
 
   return {
-    resolve: {
-      alias: {
-        src: path.resolve(__dirname, 'src'),
-        '@t': path.resolve(__dirname, 'src/types'),
-      },
-      extensions: ['.js', '.ts', '.tsx', '.jsx'],
-    },
+    ...commonConfig,
+
     build: {
       outDir: isProd ? 'dist' : 'dist/unmin',
       emptyOutDir: true,
       sourcemap: true,
       minify: isProd ? 'esbuild' : false,
+
       lib: {
         entry: path.resolve(__dirname, 'src/index.ts'),
         name: 'Daracl',
-        //formats: ['es', 'cjs', 'umd'],
-        formats: ['es', 'cjs', 'umd'],
+        formats: ['es', 'cjs'],
         fileName: (format) => {
-          if (format === 'umd') {
-            return isProd ? `${moduleName}.min.umd.js` : `${moduleName}.umd.js`;
-          }
-
+                    
           if (format === 'es') {
             return isProd ? `index.min.js` : `index.js`;  
           }
@@ -47,7 +31,7 @@ export default defineConfig(({ mode }) => {
 
           // es / cjs
           return isProd ? `index.min.${format}.js` : `index.${format}.js`;
-        },
+        }
       },
       rollupOptions: {
         treeshake: {
@@ -61,12 +45,7 @@ export default defineConfig(({ mode }) => {
        // plugins: isProd ? [terser()] : [], 
         output: {
           extend: true,
-          assetFileNames: (assetInfo) => {
-            if ((assetInfo.name||'').endsWith('.css')) {
-              return isProd ? `${moduleName}.min.[ext]` : `${moduleName}.[ext]`;
-            }
-            return 'assets/[name].[ext]';
-          },
+          assetFileNames: createAssetFileNames(isProd),
           globals: {
             "@daracl/core": "Daracl"
           }
@@ -79,18 +58,6 @@ export default defineConfig(({ mode }) => {
             brotliSize: true
           })
         ]
-      },
-    },
-    plugins: [banner(topBanner)],
-    define: {
-      APP_VERSION: JSON.stringify(packageJson.version),
-    },
-    server: {
-      host: '0.0.0.0',
-      port: 4175,
-      open: "/uitest/index.html",
-      watch: {
-        ignored: ['!**/src/**'],
       },
     },
   };
