@@ -70,3 +70,11 @@ Daracl.toast.create({ items: [{ text: 'awseawefawefawefaweff <br/>asdfwef', titl
 | enableProgress |  프로그래스 바 사용여부 |  true | |
 
 ```
+
+# 스타일
+
+`style/daracl.toast.scss` 는 z-index 와 keyframes 에 [`@daracl/ui-style`](https://www.npmjs.com/package/@daracl/ui-style) 의 토큰을 사용합니다.
+알림 색은 `style` 옵션(success, danger ...)별 고정 색이라 테마(light / dark)와 무관합니다.
+
+> SCSS 원본을 직접 컴파일하는 경우 `@daracl/ui-style` 을 찾을 수 있어야 합니다. (sass CLI : `--load-path=node_modules`)
+> 전역 `fadeIn` / `fadeOut` keyframes 는 `dtst-fade-in` / `dtst-fade-out` 으로 이름이 바뀌었습니다.

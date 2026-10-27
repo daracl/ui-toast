@@ -39,6 +39,7 @@
     "style"
   ],
   "dependencies": {
+    "@daracl/ui-style": "^0.0.1",
     "@babel/runtime-corejs3": "^7.25.7",
     "esbuild": "^0.18.11",
     "typescript": "^5.1.6"
