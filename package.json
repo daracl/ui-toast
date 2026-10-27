@@ -49,15 +49,6 @@
     "dist",
     "style"
   ],
-<<<<<<< HEAD
-  "dependencies": {
-    "@daracl/ui-style": "^0.0.1",
-    "@babel/runtime-corejs3": "^7.25.7",
-    "esbuild": "^0.18.11",
-    "typescript": "^5.1.6"
-  },
-=======
->>>>>>> fb416c0b6dfdd0b7bb47029d1942d9c3f808e93c
   "prettier": {
     "printWidth": 256,
     "useTabs": false,
@@ -74,6 +65,7 @@
     "@daracl/core": "^0.0.3"
   },
   "dependencies": {
+    "@daracl/ui-style": "^0.0.1",
     "esbuild": "^0.18.11",
     "typescript": "^5.1.6"
   },

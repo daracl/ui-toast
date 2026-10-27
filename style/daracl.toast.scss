@@ -1,19 +1,8 @@
-// z-index / keyframes 는 @daracl/ui-style 의 토큰 / 믹스인을 사용한다.
+// z-index 는 @daracl/ui-style 의 토큰을 사용한다.
 // 알림 색은 상태(success, danger ...)별 고정 색이라 테마 변수를 쓰지 않는다.
 @use "@daracl/ui-style/abstracts" as style;
-@use "@daracl/ui-style/base" as base;
 @use "_icon.scss";
 
-<<<<<<< HEAD
-.daracl-toast-hidden {
-  visibility: visible;
-  width: 0px;
-  height: 0px;
-  z-index: #{style.$z-dropdown};
-}
-
-=======
->>>>>>> fb416c0b6dfdd0b7bb47029d1942d9c3f808e93c
 .daracl-toast-wrapper {
   :root {
     --dark: #155724;
@@ -75,11 +64,7 @@
     background-position: 12px 45%;
     background-repeat: no-repeat;
 
-<<<<<<< HEAD
-    animation: dtst-fade-in 1s;
-=======
     animation: daraclFadeIn 1s;
->>>>>>> fb416c0b6dfdd0b7bb47029d1942d9c3f808e93c
     animation-fill-mode: forwards;
 
     > .dt-header {
@@ -145,14 +130,9 @@
       background-image: icon.icon(danger, "dc3545");
     }
 
-<<<<<<< HEAD
-    &.hide {
-      animation: dtst-fade-out 0.5s;
-=======
 
     &.dt-hide {
       animation: daraclFadeOut 0.5s;
->>>>>>> fb416c0b6dfdd0b7bb47029d1942d9c3f808e93c
       animation-fill-mode: forwards;
       //animation: daraToastHide 0.3s ease forwards;
     }
@@ -196,9 +176,6 @@
   }
 }
 
-<<<<<<< HEAD
-@include base.keyframes-fade('dtst');
-=======
 @keyframes daraclFadeIn {
   from {
     opacity: 0;
@@ -218,7 +195,6 @@
     opacity: 0;
   }
 }
->>>>>>> fb416c0b6dfdd0b7bb47029d1942d9c3f808e93c
 
 @keyframes daraToastHide {
   0% {
