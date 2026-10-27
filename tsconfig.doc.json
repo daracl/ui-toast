@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig",
+  "typedocOptions": {
+    "entryPoints": [
+      "src/index.doc.ts"
+      // "src/core/StringUtils.ts"
+      //"packages/b/src/index.ts",
+    ],
+    "entryPointStrategy": "Resolve",
+    "out": "docs",
+    "json": "docs/output.json",
+    "name": "Daracl core",
+    "includeVersion": true,
+    "excludePrivate": true,
+    "readme": "DOC-README.md",
+    "gitRevision": "main",
+    /*
+    "plugin": [
+      "@mxssfd/typedoc-theme"
+    ],
+    "theme": "my-theme",
+    */
+    "disableSources": true,
+    "customCss": "./docCss/customStyle.css"
+  }
+}
