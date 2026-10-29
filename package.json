@@ -65,7 +65,7 @@
     "@daracl/core": "^0.0.3"
   },
   "dependencies": {
-    "@daracl/ui-style": "^0.0.1",
+    "@daracl/ui-style": "^0.0.6",
     "esbuild": "^0.18.11",
     "typescript": "^5.1.6"
   },
